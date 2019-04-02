@@ -9,6 +9,7 @@ public class Professor {
 	
 	@Id
 	private String email;
+	
 	private String password;
 	private String name;
 	

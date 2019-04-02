@@ -9,6 +9,7 @@ public class TFG implements Serializable{
 	
 	@Id
 	private String email;
+	
 	private String password;
 	private String name;
 	private String title;
