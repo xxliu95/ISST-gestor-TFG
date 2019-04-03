@@ -1,6 +1,7 @@
 package es.upm.dit.isst.webLab.servlets;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,7 @@ import es.upm.dit.isst.webLab.model.TFG;
 
 @WebServlet("/CreateTFGServlet")
 public class CreateTFGServlet extends HttpServlet {
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String name = req.getParameter( "name" );
@@ -37,7 +39,14 @@ public class CreateTFGServlet extends HttpServlet {
 		tfg.setAdvisor( advisor );
 		
 		tfg.setPassword( new Sha256Hash( password ).toString() );
-	
+		
+		/*
+		 * Collection<TFG> advisedTFGs = advisor.getAdvisedTFGs(); advisedTFGs.add(tfg);
+		 * advisor.setAdvisedTFGs(advisedTFGs);
+		 * 
+		 * pdao.update(advisor);
+		 */
+		
 		TFGDAO tdao = TFGDAOImplementation.getInstance();
 		
 		tdao.create( tfg );

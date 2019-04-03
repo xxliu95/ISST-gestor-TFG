@@ -20,7 +20,7 @@ public class ProfessorServlet extends HttpServlet {
 	
 		ProfessorDAO pdao = ProfessorDAOImplementation.getInstance();
 		String email = req.getParameter("email");
-		req.getSession().setAttribute( "professor", pdao.read("email") );
+		req.getSession().setAttribute( "professor", pdao.read(email) );
 		
 		getServletContext().getRequestDispatcher( "/ProfessorView.jsp" ).forward( req, resp );
 	}

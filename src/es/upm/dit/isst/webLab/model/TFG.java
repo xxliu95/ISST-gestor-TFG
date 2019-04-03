@@ -22,7 +22,9 @@ public class TFG implements Serializable{
 	@ManyToOne
 	private Professor advisor;
 	
-	public TFG() {}
+	public TFG() {
+		this.status = 1;
+	}
 
 	public String getEmail() {
 		return email;

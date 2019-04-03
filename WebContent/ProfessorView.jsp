@@ -26,7 +26,7 @@
 			Vista de
 			<shiro:principal />
 		</h2>
-
+ 
 		<p>Nombre: ${professor.name }</p>
 		<p>Email: ${professor.email }</p>
 
@@ -42,33 +42,31 @@
 				<th>Memoria</th>
 				<th>Acción requerida</th>
 			</tr>
-			
+
 			<c:forEach items="${professor.advisedTFGs}" var="tfgi">
-				<c:if test="${tggi.advisor.email == professor.email }">
-					<tr>
-						<td>${tfgi.title }</td>
-						<td>${tfgi.email }</td>
-						<td>${tfgi.name }</td>
-						<td>${tfgi.advisor.email }</td>
-						<td>${tfgi.advisor.name }</td>
-						<td>${tfgi.status }</td>
-						<td><c:if test="${tfgi.status > 3}">
-								<form action="ServeFileServlet">
-									<input type="hidden" name="email" value="${tfgi.email}" />
-									<button type="submit">Descargar</button>
-								</form>
-							</c:if></td>
-						<td><c:if test="${tfgi.status == 2}">
-								<form action="Form3SecretaryServlet" method="post">
-									<input type="hidden" name="email" value="${tfgi.email}" />
-									<button type="submit">Aceptar tfg</button>
-								</form>
-							</c:if></td>
-					</tr>
-				</c:if>
+				<tr>
+					<td>${tfgi.title }</td>
+					<td>${tfgi.email }</td>
+					<td>${tfgi.name }</td>
+					<td>${tfgi.advisor.email }</td>
+					<td>${tfgi.advisor.name }</td>
+					<td>${tfgi.status }</td>
+					<td><c:if test="${tfgi.status > 3}">
+							<form action="ServeFileServlet">
+								<input type="hidden" name="email" value="${tfgi.email}" />
+								<button type="submit">Descargar</button>
+							</form>
+						</c:if></td>
+					<td><c:if test="${tfgi.status == 1}">
+							<form action="Form2ProfessorServlet" method="post">
+								<input type="hidden" name="email" value="${tfgi.email}" />
+								<button type="submit">Aceptar tfg</button>
+							</form>
+						</c:if></td>
+				</tr>
 			</c:forEach>
-			
-		</table>
+
+		</table> 
 	</shiro:user>
 </body>
 </html>

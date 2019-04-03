@@ -20,9 +20,6 @@
 		</form>
 	</shiro:guest>
 
-	<shiro:user>
-    Welcome back <shiro:principal />! Click <a href="LogoutServlet">here</a> to logout.
-	<h2>Vista de <shiro:principal /> </h2>
 	
 	<h3>Crear TFG</h3>
 		<form action="CreateTFGServlet" method="post">
@@ -52,6 +49,5 @@
 				<button type="submit">Crear TFG</button>
 			</p>
 		</form>
-	</shiro:user>
 </body>
 </html>
