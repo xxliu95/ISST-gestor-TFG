@@ -17,8 +17,8 @@ public class TFGServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		TFGDAO tdao = TFGDAOImplementation.getInstance();
-		String id = req.getParameter("email");
-		req.getSession().setAttribute( "tfg", tdao.read(id) );
+		String email = req.getParameter("email");
+		req.getSession().setAttribute( "tfg", tdao.read(email) );
 		
 		getServletContext().getRequestDispatcher( "/TFGView.jsp" ).forward( req, resp );
 	}

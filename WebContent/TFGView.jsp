@@ -51,7 +51,8 @@
 			</c:if></td>
 			<td><c:if test="${tfg.status == 3}">
 				<form action="Form4TFGServlet" method="post" enctype="multipart/form-data">
-   					 <input type="file" name="file" />
+					<input type="hidden" name="email" value="${tfg.email}" />
+   					<input type="file" name="file" />
 					<button type="submit">Subir memoria</button>
 				</form>
 			</c:if></td>
